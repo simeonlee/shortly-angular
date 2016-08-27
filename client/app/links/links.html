@@ -4,17 +4,19 @@
       <li><a href='#/links' class='index'>All Links</a></li>
       <li><a href='#/shorten' class='index'>Shorten</a></li>
     </ul>
+    <input class="search search-input" ng-model="searchText" placeholder="Search Links  ">
   </div>
 
   <div ng-controller='LinksController'>
-    <div ng-repeat="link in data.links | orderBy:'-visits'">
+    <!--div class="link" ng-repeat="link in data.links | orderBy:'-visits' | filter:searchText">
       <img src="../assets/redirect_icon.png"/>
       <div class="info">
-        <div class="visits"><span class="count">{{ link.visits }}</span>Visits</div>
+        <div class="visits"><span class="count">{{ link.visits }}</span> visits</div>
         <div class="title">{{ link.title }}</div>
         <div class="original">{{ link.baseUrl }}</div>
         <a href="{{ link.code }}">{{ link.url + '/' + link.code }}</a>
       </div>
-    </div>
+    </div-->
+    <shortened-link></shortened-link>
   </div>
 </div>
