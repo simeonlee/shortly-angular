@@ -1,6 +1,16 @@
-<div id='container'>
+<div id="container" ng-app="shortly.shorten">
 <!-- Your code here -->
-
+  <div class="navigation">
+    <ul>
+      <li><a href="#/links" class="index">All Links</a></li>
+      <li><a href="#/shorten" class="index">Shorten</a></li>
+    </ul>
+  </div>
+  <div ng-controller="ShortenController">
+    <form ng-submit="addLink(url)">
+      <input class="text" type="text" ng-model="url">
+      <input type="submit" value="Shorten">
+    </form>
+  </div>
 </div>
-
 
