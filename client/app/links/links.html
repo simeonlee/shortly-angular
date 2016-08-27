@@ -1,4 +1,4 @@
-<div id='container'>
+<div id='container' ng-app='shortly.links'>
   <div class='navigation'>
     <ul>
       <li><a href='#/links' class='index'>All Links</a></li>
@@ -6,13 +6,15 @@
     </ul>
   </div>
 
-  <div ng-repeat="link in links">
-    <img src="../assets/redirect_icon.png"/>
-    <div class="info">
-      <div class="visits"><span class="count">{{ link.visits }}</span>Visits</div>
-      <div class="title">{{ link.title }}</div>
-      <div class="original">{{ link.baseUrl }}</div>
-      <a href="#">{{ link.url }}</a>
+  <div ng-controller='LinksController'>
+    <div ng-repeat="link in data.links | orderBy:'-visits'">
+      <img src="../assets/redirect_icon.png"/>
+      <div class="info">
+        <div class="visits"><span class="count">{{ link.visits }}</span>Visits</div>
+        <div class="title">{{ link.title }}</div>
+        <div class="original">{{ link.baseUrl }}</div>
+        <a href="{{ link.code }}">{{ link.url + '/' + link.code }}</a>
+      </div>
     </div>
   </div>
 </div>
